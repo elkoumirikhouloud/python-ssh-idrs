@@ -11,13 +11,9 @@ def parse_logs():
 
         for line in file:
 
-            # Only process SSH authentication lines
             if "sshd" not in line:
                 continue
 
-            # --------------------------
-            # Extract authentication hour
-            # --------------------------
 
             time_match = re.search(
                 r"T(\d{2}):(\d{2}):(\d{2})",
@@ -29,9 +25,6 @@ def parse_logs():
 
             hour = int(time_match.group(1))
 
-            # --------------------------
-            # Extract IP address
-            # --------------------------
 
             ip_match = re.search(
                 r"from (\d{1,3}(?:\.\d{1,3}){3})",
@@ -43,9 +36,6 @@ def parse_logs():
 
             ip = ip_match.group(1)
 
-            # --------------------------
-            # Failed password
-            # --------------------------
 
             if "Failed password for " in line and "invalid user" not in line:
 
@@ -68,9 +58,6 @@ def parse_logs():
 
                     })
 
-            # --------------------------
-            # Invalid user
-            # --------------------------
 
             elif "Invalid user" in line:
 
@@ -93,9 +80,6 @@ def parse_logs():
 
                     })
 
-            # --------------------------
-            # Successful login
-            # --------------------------
 
             elif "Accepted password for " in line:
 
