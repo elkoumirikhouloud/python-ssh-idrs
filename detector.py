@@ -33,9 +33,7 @@ class Detector:
 
         should_block = False
 
-        # -----------------------------
-        # Time-based SSH restriction
-        # -----------------------------
+        
 
         if hour < SSH_START_HOUR or hour >= SSH_END_HOUR:
 
@@ -47,10 +45,7 @@ class Detector:
 
             should_block = True
 
-        # -----------------------------
-        # Brute Force Detection
-        # -----------------------------
-
+        
         if attempt_type == "bruteforce":
 
             self.failed_attempts[ip] += 1
@@ -67,9 +62,6 @@ class Detector:
 
                 self.failed_attempts[ip] = 0
 
-        # -----------------------------
-        # Username Enumeration
-        # -----------------------------
 
         elif attempt_type == "enumeration":
 
@@ -86,9 +78,6 @@ class Detector:
 
                 self.enumerated_users[ip].clear()
 
-        # -----------------------------
-        # Block only after processing
-        # -----------------------------
 
         if should_block:
 
