@@ -1,0 +1,13 @@
+LOG_FILE = "/var/log/auth.log"
+
+FAILED_ATTEMPT_THRESHOLD = 5
+
+USERNAME_ENUMERATION_THRESHOLD = 3
+
+BLOCK_DURATION = 120
+
+ALERT_LOG_FILE = "logs/alerts.log"
+
+# Allowed SSH access hours
+SSH_START_HOUR = 8
+SSH_END_HOUR = 18
