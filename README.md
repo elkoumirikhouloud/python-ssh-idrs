@@ -1,4 +1,4 @@
-# Lightweight Python-Based Intrusion Detection and Response System for SSH Security
+# Python-Based Intrusion Detection and Response System for SSH Security
 
 A lightweight Python-based Intrusion Detection and Response System (IDRS) designed to monitor SSH authentication activity, detect suspicious behavior, generate security alerts, and automatically block malicious IP addresses.
 
